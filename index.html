@@ -1,560 +1,203 @@
- (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/index.html b/index.html
-index f3783e66ff7d39ec0935fe7302e641825321cd5d..3f586d459aebb72c3c84eae7030d4bf510fd16c9 100644
---- a/index.html
-+++ b/index.html
-@@ -1,362 +1,203 @@
--import React, { useState } from 'react';
-+<!DOCTYPE html>
-+<html lang="es">
-+<head>
-+  <meta charset="UTF-8" />
-+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-+  <title>Ágora Comunicaciones</title>
-+  <link rel="manifest" href="manifest.json" />
-+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-+</head>
-+<body class="font-inter bg-gray-100">
-+  <div id="root"></div>
- 
--// Componente principal de la aplicación
--const App = () => {
--  // Estado para controlar la navegación entre secciones
--  const [currentPage, setCurrentPage] = useState('home');
--  // Estado para el formulario de contacto
--  const [formData, setFormData] = useState({
--    name: '',
--    email: '',
--    message: '',
--    attachments: [],
--  });
--  // Estado para mensajes de confirmación o error del formulario
--  const [formMessage, setFormMessage] = useState('');
-+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
- 
--  // Datos del portafolio de servicios
--  const services = [
--    {
--      title: 'Marca Personal',
--      description: 'Construimos y potenciamos tu identidad única para destacar en tu sector. Desde el desarrollo de tu narrativa hasta la gestión de tu presencia online, te ayudamos a proyectar una imagen coherente y memorable que resuene con tu audiencia.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Marca+Personal'
--    },
--    {
--      title: 'Publicidad',
--      description: 'Diseñamos campañas publicitarias impactantes y estratégicas que conectan con tu público objetivo. Creamos mensajes que venden, utilizando una combinación de creatividad y análisis de datos para asegurar el máximo retorno de tu inversión.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Publicidad'
--    },
--    {
--      title: 'Creación de Contenido',
--      description: 'Producimos contenido relevante y de alta calidad para todas tus plataformas digitales. Desde artículos y blogs hasta videos y gráficos, nuestro contenido está optimizado para atraer, involucrar y convertir a tu audiencia.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Creación+de+Contenido'
--    },
--    {
--      title: 'Estrategias de Marketing',
--      description: 'Desarrollamos planes de marketing integrales que alinean tus objetivos de negocio con las necesidades de tu mercado. Implementamos tácticas innovadoras que incluyen marketing digital, SEO, SEM y social media para un crecimiento sostenido.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Estrategias+de+Marketing'
--    },
--    {
--      title: 'Relaciones Públicas',
--      description: 'Gestionamos tu imagen pública y fortalecemos tu reputación a través de una comunicación estratégica con medios y stakeholders. Construimos relaciones sólidas que generan credibilidad y visibilidad positiva para tu marca.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Relaciones+Públicas'
--    },
--    {
--      title: 'Diseño Gráfico',
--      description: 'Creamos identidades visuales impactantes y materiales gráficos que comunican tu mensaje de manera efectiva. Desde logotipos y branding hasta folletos y publicaciones para redes sociales, tu marca lucirá profesional y atractiva.',
--      image: 'https://placehold.co/400x200/FACC15/000000?text=Diseño+Gráfico'
--    },
--  ];
-+  <script type="text/babel">
-+    const App = () => {
-+      const [currentPage, setCurrentPage] = React.useState('home');
-+      const [formData, setFormData] = React.useState({ name: '', email: '', message: '', attachments: [] });
-+      const [formMessage, setFormMessage] = React.useState('');
- 
--  // Datos del equipo de trabajo
--  const teamMembers = [
--    {
--      name: 'Daniela Vera',
--      role: 'Directora de Cuentas',
--      email: 'verafrancodaniela@gmail.com',
--      image: 'https://placehold.co/100x100/FACC15/000000?text=DV'
--    },
--    {
--      name: 'Juan Pérez',
--      role: 'Especialista en Contenido',
--      email: 'juan.perez@agora.com',
--      image: 'https://placehold.co/100x100/FACC15/000000?text=JP'
--    },
--    {
--      name: 'María García',
--      role: 'Diseñadora Gráfica Senior',
--      email: 'maria.garcia@agora.com',
--      image: 'https://placehold.co/100x100/FACC15/000000?text=MG'
--    },
--    {
--      name: 'Carlos López',
--      role: 'Experto en Marketing Digital',
--      email: 'carlos.lopez@agora.com',
--      image: 'https://placehold.co/100x100/FACC15/000000?text=CL'
--    },
--  ];
-+      const services = [
-+        { title: 'Marca Personal', description: 'Construimos y potenciamos tu identidad única para destacar en tu sector. Desde el desarrollo de tu narrativa hasta la gestión de tu presencia online, te ayudamos a proyectar una imagen coherente y memorable que resuene con tu audiencia.', image: 'https://placehold.co/400x200/FACC15/000000?text=Marca+Personal' },
-+        { title: 'Publicidad', description: 'Diseñamos campañas publicitarias impactantes y estratégicas que conectan con tu público objetivo. Creamos mensajes que venden, utilizando una combinación de creatividad y análisis de datos para asegurar el máximo retorno de tu inversión.', image: 'https://placehold.co/400x200/FACC15/000000?text=Publicidad' },
-+        { title: 'Creación de Contenido', description: 'Producimos contenido relevante y de alta calidad para todas tus plataformas digitales. Desde artículos y blogs hasta videos y gráficos, nuestro contenido está optimizado para atraer, involucrar y convertir a tu audiencia.', image: 'https://placehold.co/400x200/FACC15/000000?text=Creación+de+Contenido' },
-+        { title: 'Estrategias de Marketing', description: 'Desarrollamos planes de marketing integrales que alinean tus objetivos de negocio con las necesidades de tu mercado. Implementamos tácticas innovadoras que incluyen marketing digital, SEO, SEM y social media para un crecimiento sostenido.', image: 'https://placehold.co/400x200/FACC15/000000?text=Estrategias+de+Marketing' },
-+        { title: 'Relaciones Públicas', description: 'Gestionamos tu imagen pública y fortalecemos tu reputación a través de una comunicación estratégica con medios y stakeholders. Construimos relaciones sólidas que generan credibilidad y visibilidad positiva para tu marca.', image: 'https://placehold.co/400x200/FACC15/000000?text=Relaciones+Públicas' },
-+        { title: 'Diseño Gráfico', description: 'Creamos identidades visuales impactantes y materiales gráficos que comunican tu mensaje de manera efectiva. Desde logotipos y branding hasta folletos y publicaciones para redes sociales, tu marca lucirá profesional y atractiva.', image: 'https://placehold.co/400x200/FACC15/000000?text=Dise%C3%B1o+Gr%C3%A1fico' }
-+      ];
- 
--  // Manejador de cambio para los inputs del formulario
--  const handleChange = (e) => {
--    const { name, value, files } = e.target;
--    if (name === 'attachments') {
--      setFormData({ ...formData, attachments: Array.from(files) });
--    } else {
--      setFormData({ ...formData, [name]: value });
--    }
--  };
-+      const teamMembers = [
-+        { name: 'Daniela Vera', role: 'Directora de Cuentas', email: 'verafrancodaniela@gmail.com', image: 'https://placehold.co/100x100/FACC15/000000?text=DV' },
-+        { name: 'Juan Pérez', role: 'Especialista en Contenido', email: 'juan.perez@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=JP' },
-+        { name: 'María García', role: 'Diseñadora Gráfica Senior', email: 'maria.garcia@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=MG' },
-+        { name: 'Carlos López', role: 'Experto en Marketing Digital', email: 'carlos.lopez@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=CL' }
-+      ];
- 
--  // Manejador de envío del formulario
--  const handleSubmit = (e) => {
--    e.preventDefault();
--    setFormMessage(''); // Limpiar mensajes anteriores
--
--    // Validación básica
--    if (!formData.name || !formData.email || !formData.message) {
--      setFormMessage('Por favor, completa todos los campos obligatorios.');
--      return;
--    }
--
--    // Aquí se simularía el envío de los datos.
--    // En una aplicación real, usarías fetch() o axios para enviar los datos
--    // a un servidor backend que maneje el correo electrónico y el almacenamiento de archivos.
--    console.log('Datos del formulario enviados:', formData);
--
--    // Simulación de éxito
--    setFormMessage('¡Tu solicitud ha sido enviada con éxito! Te contactaremos pronto.');
--    setFormData({ name: '', email: '', message: '', attachments: [] }); // Limpiar formulario
-+      const handleChange = (e) => {
-+        const { name, value, files } = e.target;
-+        if (name === 'attachments') {
-+          setFormData({ ...formData, attachments: Array.from(files) });
-+        } else {
-+          setFormData({ ...formData, [name]: value });
-+        }
-+      };
- 
--    // Puedes agregar lógica para resetear el input de archivos si es necesario
--    e.target.reset(); // Resetea el formulario HTML
--  };
-+      const handleSubmit = (e) => {
-+        e.preventDefault();
-+        setFormMessage('');
-+        if (!formData.name || !formData.email || !formData.message) {
-+          setFormMessage('Por favor, completa todos los campos obligatorios.');
-+          return;
-+        }
-+        console.log('Datos del formulario enviados:', formData);
-+        setFormMessage('¡Tu solicitud ha sido enviada con éxito! Te contactaremos pronto.');
-+        setFormData({ name: '', email: '', message: '', attachments: [] });
-+        e.target.reset();
-+      };
- 
--  // Renderiza el contenido de cada página
--  const renderContent = () => {
--    switch (currentPage) {
--      case 'home':
--        return (
--          <div className="p-6">
--            <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center animate-fadeInUp">¡Bienvenido a Ágora Comunicaciones!</h2>
--            <p className="text-gray-700 text-lg mb-8 text-center animate-fadeInUp delay-100">
--              Somos tu aliado estratégico en comunicación publicitaria. Conectamos marcas con personas, transformando ideas en resultados.
--            </p>
--            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
--              {services.map((service, index) => (
--                <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 animate-fadeInUp" style={{animationDelay: `${0.2 + index * 0.1}s`}}>
--                  <img src={service.image} alt={service.title} className="w-full h-48 object-cover" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
--                  <div className="p-6">
--                    <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
--                    <p className="text-gray-600 text-sm">{service.description}</p>
--                  </div>
--                </div>
--              ))}
--            </div>
--            <p className="text-center text-gray-600 mt-12 text-sm">
--              Descubre más sobre cómo podemos impulsar tu marca.
--            </p>
--          </div>
--        );
--      case 'services':
--        return (
--          <div className="p-6">
--            <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center animate-fadeInUp">Nuestro Portafolio de Servicios</h2>
--            <div className="grid grid-cols-1 gap-6">
--              {services.map((service, index) => (
--                <div key={index} className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center transition duration-300 transform hover:scale-[1.02] animate-fadeInUp" style={{animationDelay: `${index * 0.1}s`}}>
--                  <img src={service.image} alt={service.title} className="w-full md:w-1/3 h-48 md:h-32 object-cover rounded-md mb-4 md:mb-0 md:mr-6" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
--                  <div className="flex-1">
--                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">{service.title}</h3>
--                    <p className="text-gray-700">{service.description}</p>
--                  </div>
--                </div>
--              ))}
--            </div>
--          </div>
--        );
--      case 'about':
--        return (
--          <div className="p-6">
--            <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center animate-fadeInUp">Nuestro Equipo</h2>
--            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
--              {teamMembers.map((member, index) => (
--                <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center transition duration-300 transform hover:scale-105 animate-fadeInUp" style={{animationDelay: `${index * 0.1}s`}}>
--                  <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-500 shadow-md" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x100/FACC15/000000?text=User'; }} />
--                  <h3 className="text-xl font-semibold text-gray-800 mb-1">{member.name}</h3>
--                  <p className="text-yellow-600 font-medium mb-2">{member.role}</p>
--                  <p className="text-gray-600 text-sm">{member.email}</p>
-+      const renderContent = () => {
-+        switch (currentPage) {
-+          case 'home':
-+            return (
-+              <div className="p-6">
-+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">¡Bienvenido a Ágora Comunicaciones!</h2>
-+                <p className="text-gray-700 text-lg mb-8 text-center">Somos tu aliado estratégico en comunicación publicitaria. Conectamos marcas con personas, transformando ideas en resultados.</p>
-+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-+                  {services.map((service, index) => (
-+                    <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
-+                      <img src={service.image} alt={service.title} className="w-full h-48 object-cover" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
-+                      <div className="p-6">
-+                        <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
-+                        <p className="text-gray-600 text-sm">{service.description}</p>
-+                      </div>
-+                    </div>
-+                  ))}
-                 </div>
--              ))}
--            </div>
--            <p className="text-center text-gray-600 mt-8 text-sm">
--              Profesionales apasionados comprometidos con tu éxito.
--            </p>
--          </div>
--        );
--      case 'contact':
--        return (
--          <div className="p-6 max-w-2xl mx-auto">
--            <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center animate-fadeInUp">Solicita Información o Cotización</h2>
--            <div className="bg-white rounded-xl shadow-lg p-8 animate-fadeInUp delay-100">
--              <form onSubmit={handleSubmit} className="space-y-6">
--                <div>
--                  <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">Nombre completo:</label>
--                  <input
--                    type="text"
--                    id="name"
--                    name="name"
--                    value={formData.name}
--                    onChange={handleChange}
--                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md"
--                    placeholder="Tu nombre"
--                    required
--                  />
-+                <p className="text-center text-gray-600 mt-12 text-sm">Descubre más sobre cómo podemos impulsar tu marca.</p>
-+              </div>
-+            );
-+          case 'services':
-+            return (
-+              <div className="p-6">
-+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Nuestro Portafolio de Servicios</h2>
-+                <div className="grid grid-cols-1 gap-6">
-+                  {services.map((service, index) => (
-+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center transition duration-300 transform hover:scale-[1.02]">
-+                      <img src={service.image} alt={service.title} className="w-full md:w-1/3 h-48 md:h-32 object-cover rounded-md mb-4 md:mb-0 md:mr-6" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
-+                      <div className="flex-1">
-+                        <h3 className="text-2xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-+                        <p className="text-gray-700">{service.description}</p>
-+                      </div>
-+                    </div>
-+                  ))}
-                 </div>
--                <div>
--                  <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">Correo electrónico:</label>
--                  <input
--                    type="email"
--                    id="email"
--                    name="email"
--                    value={formData.email}
--                    onChange={handleChange}
--                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md"
--                    placeholder="ejemplo@dominio.com"
--                    required
--                  />
-+              </div>
-+            );
-+          case 'about':
-+            return (
-+              <div className="p-6">
-+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Nuestro Equipo</h2>
-+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-+                  {teamMembers.map((member, index) => (
-+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center transition duration-300 transform hover:scale-105">
-+                      <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-500 shadow-md" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/100x100/FACC15/000000?text=User'; }} />
-+                      <h3 className="text-xl font-semibold text-gray-800 mb-1">{member.name}</h3>
-+                      <p className="text-yellow-600 font-medium mb-2">{member.role}</p>
-+                      <p className="text-gray-600 text-sm">{member.email}</p>
-+                    </div>
-+                  ))}
-                 </div>
--                <div>
--                  <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">Tu mensaje o detalles de la solicitud:</label>
--                  <textarea
--                    id="message"
--                    name="message"
--                    rows="6"
--                    value={formData.message}
--                    onChange={handleChange}
--                    className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md"
--                    placeholder="Descríbenos tus necesidades..."
--                    required
--                  ></textarea>
-+                <p className="text-center text-gray-600 mt-8 text-sm">Profesionales apasionados comprometidos con tu éxito.</p>
-+              </div>
-+            );
-+          case 'contact':
-+            return (
-+              <div className="p-6 max-w-2xl mx-auto">
-+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Solicita Información o Cotización</h2>
-+                <div className="bg-white rounded-xl shadow-lg p-8">
-+                  <form onSubmit={handleSubmit} className="space-y-6">
-+                    <div>
-+                      <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">Nombre completo:</label>
-+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="Tu nombre" required />
-+                    </div>
-+                    <div>
-+                      <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">Correo electrónico:</label>
-+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="ejemplo@dominio.com" required />
-+                    </div>
-+                    <div>
-+                      <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">Tu mensaje o detalles de la solicitud:</label>
-+                      <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="Descríbenos tus necesidades..." required />
-+                    </div>
-+                    <div>
-+                      <label htmlFor="attachments" className="block text-lg font-medium text-gray-700 mb-2">Adjuntar archivos (opcional):</label>
-+                      <input type="file" id="attachments" name="attachments" multiple onChange={handleChange} className="mt-1 block w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" />
-+                      {formData.attachments.length > 0 && (
-+                        <p className="text-sm text-gray-500 mt-2">Archivos seleccionados: {formData.attachments.map(f => f.name).join(', ')}</p>
-+                      )}
-+                    </div>
-+                    {formMessage && (
-+                      <div className={`p-4 rounded-md text-center ${formMessage.includes('éxito') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{formMessage}</div>
-+                    )}
-+                    <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150 ease-in-out">Enviar Solicitud</button>
-+                  </form>
-                 </div>
--                <div>
--                  <label htmlFor="attachments" className="block text-lg font-medium text-gray-700 mb-2">Adjuntar archivos (opcional):</label>
--                  <input
--                    type="file"
--                    id="attachments"
--                    name="attachments"
--                    multiple
--                    onChange={handleChange}
--                    className="mt-1 block w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100"
--                  />
--                  {formData.attachments.length > 0 && (
--                    <p className="text-sm text-gray-500 mt-2">Archivos seleccionados: {formData.attachments.map(f => f.name).join(', ')}</p>
--                  )}
--                </div>
--                {formMessage && (
--                  <div className={`p-4 rounded-md text-center ${formMessage.includes('éxito') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
--                    {formMessage}
--                  </div>
--                )}
--                <button
--                  type="submit"
--                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150 ease-in-out"
--                >
--                  Enviar Solicitud
--                </button>
--              </form>
--            </div>
--          </div>
--        );
--      default:
--        return null;
--    }
--  };
--
--  return (
--    <div className="min-h-screen bg-gray-100 font-inter flex flex-col">
--      {/* Barra de navegación superior */}
--      <header className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10">
--        {/* Aquí se ha reemplazado el texto por el logotipo */}
--        <img src="uploaded:image_50bdd0.png-4854fa29-40f1-44f6-9164-90a3d2da7883" alt="Ágora Comunicaciones Logo" className="h-10 w-auto" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/150x40/FACC15/000000?text=Ágora+Logo'; }} />
--        <button
--          className="md:hidden text-yellow-400 focus:outline-none"
--          onClick={() => document.getElementById('navbar-menu').classList.toggle('hidden')}
--        >
--          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
--        </button>
--        <nav id="navbar-menu" className="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 absolute md:relative top-full left-0 w-full bg-gray-900 md:bg-transparent p-4 md:p-0 shadow-lg md:shadow-none">
--          <button
--            onClick={() => setCurrentPage('home')}
--            className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
--          >
--            Inicio
--          </button>
--          <button
--            onClick={() => setCurrentPage('services')}
--            className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
--          >
--            Servicios
--          </button>
--          <button
--            onClick={() => setCurrentPage('about')}
--            className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
--          >
--            Quiénes somos
--          </button>
--          <button
--            onClick={() => setCurrentPage('contact')}
--            className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}
--          >
--            Contacto
--          </button>
--        </nav>
--      </header>
--
--      {/* Contenido principal */}
--      <main className="flex-grow pt-20 pb-16"> {/* Añadir padding-top para evitar que el contenido se oculte bajo la barra de navegación fija */}
--        {renderContent()}
--      </main>
--
--      {/* Barra de navegación inferior para móviles */}
--      <footer className="bg-gray-900 text-white p-4 flex justify-around items-center fixed bottom-0 left-0 w-full z-10 md:hidden shadow-lg">
--        <button
--          onClick={() => setCurrentPage('home')}
--          className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}
--        >
--          <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
--          Inicio
--        </button>
--        <button
--          onClick={() => setCurrentPage('services')}
--          className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}
--        >
--          <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-3 1h2m0-16V5a2 2 0 012-2h2a2 2 0 012 2v2M9 16l-3-12h10l-3 12M12 15l-3-6h6l-3 6m-6-6h6"></path></svg>
--          Servicios
--        </button>
--        <button
--          onClick={() => setCurrentPage('about')}
--          className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}
--        >
--          <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M12 11V9m0 2a4 4 0 100-8 4 4 0 000 8zm-2 11H8a2 2 0 01-2-2v-2a2 2 0 00-2-2H2a2 2 0 00-2 2v2a2 2 0 01-2 2h2zm10 0h2a2 2 0 002-2v-2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 002 2h-2zm-6-4a4 4 0 100-8 4 4 0 000 8z"></path></svg>
--          Equipo
--        </button>
--        <button
--          onClick={() => setCurrentPage('contact')}
--          className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}
--        >
--          <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
--          Contacto
--        </button>
--      </footer>
--      {/* Estilos para animaciones */}
--      <style>{`
--        /*
--         * NOTA IMPORTANTE: Para asegurar una correcta visualización en todos los dispositivos,
--         * asegúrate de que tu archivo 'index.html' (el que carga esta aplicación React)
--         * incluya la meta etiqueta viewport y la carga de la fuente 'Inter'.
--         * Ejemplo en index.html:
--         * <meta name="viewport" content="width=device-width, initial-scale=1.0">
--         * <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
--         */
--        @keyframes fadeInUp {
--          from {
--            opacity: 0;
--            transform: translateY(20px);
--          }
--          to {
--            opacity: 1;
--            transform: translateY(0);
--          }
-+              </div>
-+            );
-+          default:
-+            return null;
-         }
--        .animate-fadeInUp {
--          animation: fadeInUp 0.5s ease-out forwards;
-+      };
-+
-+      React.useEffect(() => {
-+        if ('serviceWorker' in navigator) {
-+          navigator.serviceWorker.register('service-worker.js');
-         }
--        .delay-100 { animation-delay: 0.1s; }
--        .delay-200 { animation-delay: 0.2s; }
--        .delay-300 { animation-delay: 0.3s; }
--        /* Puedes agregar más delays si es necesario */
--      `}</style>
--    </div>
--  );
--};
-+      }, []);
-+
-+      return (
-+        <div className="min-h-screen bg-gray-100 font-inter flex flex-col">
-+          <header className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10">
-+            <img src="https://placehold.co/150x40/FACC15/000000?text=Ágora+Logo" alt="Ágora Comunicaciones Logo" className="h-10 w-auto" />
-+            <button className="md:hidden text-yellow-400 focus:outline-none" onClick={() => document.getElementById('navbar-menu').classList.toggle('hidden')}>
-+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-+            </button>
-+            <nav id="navbar-menu" className="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 absolute md:relative top-full left-0 w-full bg-gray-900 md:bg-transparent p-4 md:p-0 shadow-lg md:shadow-none">
-+              <button onClick={() => setCurrentPage('home')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Inicio</button>
-+              <button onClick={() => setCurrentPage('services')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Servicios</button>
-+              <button onClick={() => setCurrentPage('about')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Quiénes somos</button>
-+              <button onClick={() => setCurrentPage('contact')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Contacto</button>
-+            </nav>
-+          </header>
-+          <main className="flex-grow pt-20 pb-16">
-+            {renderContent()}
-+          </main>
-+          <footer className="bg-gray-900 text-white p-4 flex justify-around items-center fixed bottom-0 left-0 w-full z-10 md:hidden shadow-lg">
-+            <button onClick={() => setCurrentPage('home')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
-+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
-+              Inicio
-+            </button>
-+            <button onClick={() => setCurrentPage('services')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
-+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-3 1h2m0-16V5a2 2 0 012-2h2a2 2 0 012 2v2M9 16l-3-12h10l-3 12M12 15l-3-6h6l-3 6m-6-6h6" /></svg>
-+              Servicios
-+            </button>
-+            <button onClick={() => setCurrentPage('about')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
-+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M12 11V9m0 2a4 4 0 100-8 4 4 0 000 8zm-2 11H8a2 2 0 01-2-2v-2a2 2 0 00-2-2H2a2 2 0 00-2 2v2a2 2 0 01-2 2h2zm10 0h2a2 2 0 002-2v-2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 002 2h-2zm-6-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
-+              Equipo
-+            </button>
-+            <button onClick={() => setCurrentPage('contact')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
-+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-+              Contacto
-+            </button>
-+          </footer>
-+        </div>
-+      );
-+    };
- 
--export default App;
-+    ReactDOM.render(<App />, document.getElementById('root'));
-+  </script>
-+</body>
-+</html>
- 
-EOF
-)
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ágora Comunicaciones</title>
+  <link rel="manifest" href="manifest.json" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body class="font-inter bg-gray-100">
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type="text/babel">
+    const App = () => {
+      const [currentPage, setCurrentPage] = React.useState('home');
+      const [formData, setFormData] = React.useState({ name: '', email: '', message: '', attachments: [] });
+      const [formMessage, setFormMessage] = React.useState('');
+
+      const services = [
+        { title: 'Marca Personal', description: 'Construimos y potenciamos tu identidad única para destacar en tu sector. Desde el desarrollo de tu narrativa hasta la gestión de tu presencia online, te ayudamos a proyectar una imagen coherente y memorable que resuene con tu audiencia.', image: 'https://placehold.co/400x200/FACC15/000000?text=Marca+Personal' },
+        { title: 'Publicidad', description: 'Diseñamos campañas publicitarias impactantes y estratégicas que conectan con tu público objetivo. Creamos mensajes que venden, utilizando una combinación de creatividad y análisis de datos para asegurar el máximo retorno de tu inversión.', image: 'https://placehold.co/400x200/FACC15/000000?text=Publicidad' },
+        { title: 'Creación de Contenido', description: 'Producimos contenido relevante y de alta calidad para todas tus plataformas digitales. Desde artículos y blogs hasta videos y gráficos, nuestro contenido está optimizado para atraer, involucrar y convertir a tu audiencia.', image: 'https://placehold.co/400x200/FACC15/000000?text=Creación+de+Contenido' },
+        { title: 'Estrategias de Marketing', description: 'Desarrollamos planes de marketing integrales que alinean tus objetivos de negocio con las necesidades de tu mercado. Implementamos tácticas innovadoras que incluyen marketing digital, SEO, SEM y social media para un crecimiento sostenido.', image: 'https://placehold.co/400x200/FACC15/000000?text=Estrategias+de+Marketing' },
+        { title: 'Relaciones Públicas', description: 'Gestionamos tu imagen pública y fortalecemos tu reputación a través de una comunicación estratégica con medios y stakeholders. Construimos relaciones sólidas que generan credibilidad y visibilidad positiva para tu marca.', image: 'https://placehold.co/400x200/FACC15/000000?text=Relaciones+Públicas' },
+        { title: 'Diseño Gráfico', description: 'Creamos identidades visuales impactantes y materiales gráficos que comunican tu mensaje de manera efectiva. Desde logotipos y branding hasta folletos y publicaciones para redes sociales, tu marca lucirá profesional y atractiva.', image: 'https://placehold.co/400x200/FACC15/000000?text=Dise%C3%B1o+Gr%C3%A1fico' }
+      ];
+
+      const teamMembers = [
+        { name: 'Daniela Vera', role: 'Directora de Cuentas', email: 'verafrancodaniela@gmail.com', image: 'https://placehold.co/100x100/FACC15/000000?text=DV' },
+        { name: 'Juan Pérez', role: 'Especialista en Contenido', email: 'juan.perez@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=JP' },
+        { name: 'María García', role: 'Diseñadora Gráfica Senior', email: 'maria.garcia@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=MG' },
+        { name: 'Carlos López', role: 'Experto en Marketing Digital', email: 'carlos.lopez@agora.com', image: 'https://placehold.co/100x100/FACC15/000000?text=CL' }
+      ];
+
+      const handleChange = (e) => {
+        const { name, value, files } = e.target;
+        if (name === 'attachments') {
+          setFormData({ ...formData, attachments: Array.from(files) });
+        } else {
+          setFormData({ ...formData, [name]: value });
+        }
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        setFormMessage('');
+        if (!formData.name || !formData.email || !formData.message) {
+          setFormMessage('Por favor, completa todos los campos obligatorios.');
+          return;
+        }
+        console.log('Datos del formulario enviados:', formData);
+        setFormMessage('¡Tu solicitud ha sido enviada con éxito! Te contactaremos pronto.');
+        setFormData({ name: '', email: '', message: '', attachments: [] });
+        e.target.reset();
+      };
+
+      const renderContent = () => {
+        switch (currentPage) {
+          case 'home':
+            return (
+              <div className="p-6">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">¡Bienvenido a Ágora Comunicaciones!</h2>
+                <p className="text-gray-700 text-lg mb-8 text-center">Somos tu aliado estratégico en comunicación publicitaria. Conectamos marcas con personas, transformando ideas en resultados.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {services.map((service, index) => (
+                    <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105">
+                      <img src={service.image} alt={service.title} className="w-full h-48 object-cover" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold text-gray-800 mb-3">{service.title}</h3>
+                        <p className="text-gray-600 text-sm">{service.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-gray-600 mt-12 text-sm">Descubre más sobre cómo podemos impulsar tu marca.</p>
+              </div>
+            );
+          case 'services':
+            return (
+              <div className="p-6">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Nuestro Portafolio de Servicios</h2>
+                <div className="grid grid-cols-1 gap-6">
+                  {services.map((service, index) => (
+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 flex flex-col md:flex-row items-center transition duration-300 transform hover:scale-[1.02]">
+                      <img src={service.image} alt={service.title} className="w-full md:w-1/3 h-48 md:h-32 object-cover rounded-md mb-4 md:mb-0 md:mr-6" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/400x200/FACC15/000000?text=Imagen+No+Disponible'; }} />
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-semibold text-gray-800 mb-2">{service.title}</h3>
+                        <p className="text-gray-700">{service.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          case 'about':
+            return (
+              <div className="p-6">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Nuestro Equipo</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {teamMembers.map((member, index) => (
+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center transition duration-300 transform hover:scale-105">
+                      <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover border-4 border-yellow-500 shadow-md" onError={e => { e.target.onerror=null; e.target.src='https://placehold.co/100x100/FACC15/000000?text=User'; }} />
+                      <h3 className="text-xl font-semibold text-gray-800 mb-1">{member.name}</h3>
+                      <p className="text-yellow-600 font-medium mb-2">{member.role}</p>
+                      <p className="text-gray-600 text-sm">{member.email}</p>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-center text-gray-600 mt-8 text-sm">Profesionales apasionados comprometidos con tu éxito.</p>
+              </div>
+            );
+          case 'contact':
+            return (
+              <div className="p-6 max-w-2xl mx-auto">
+                <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">Solicita Información o Cotización</h2>
+                <div className="bg-white rounded-xl shadow-lg p-8">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">Nombre completo:</label>
+                      <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="Tu nombre" required />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">Correo electrónico:</label>
+                      <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="ejemplo@dominio.com" required />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">Tu mensaje o detalles de la solicitud:</label>
+                      <textarea id="message" name="message" rows="6" value={formData.message} onChange={handleChange} className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-yellow-500 focus:border-yellow-500 sm:text-md" placeholder="Descríbenos tus necesidades..." required />
+                    </div>
+                    <div>
+                      <label htmlFor="attachments" className="block text-lg font-medium text-gray-700 mb-2">Adjuntar archivos (opcional):</label>
+                      <input type="file" id="attachments" name="attachments" multiple onChange={handleChange} className="mt-1 block w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-yellow-50 file:text-yellow-700 hover:file:bg-yellow-100" />
+                      {formData.attachments.length > 0 && (
+                        <p className="text-sm text-gray-500 mt-2">Archivos seleccionados: {formData.attachments.map(f => f.name).join(', ')}</p>
+                      )}
+                    </div>
+                    {formMessage && (
+                      <div className={`p-4 rounded-md text-center ${formMessage.includes('éxito') ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>{formMessage}</div>
+                    )}
+                    <button type="submit" className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-medium text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 transition duration-150 ease-in-out">Enviar Solicitud</button>
+                  </form>
+                </div>
+              </div>
+            );
+          default:
+            return null;
+        }
+      };
+
+      React.useEffect(() => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('service-worker.js');
+        }
+      }, []);
+
+      return (
+        <div className="min-h-screen bg-gray-100 font-inter flex flex-col">
+          <header className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10">
+            <img src="https://placehold.co/150x40/FACC15/000000?text=Ágora+Logo" alt="Ágora Comunicaciones Logo" className="h-10 w-auto" />
+            <button className="md:hidden text-yellow-400 focus:outline-none" onClick={() => document.getElementById('navbar-menu').classList.toggle('hidden')}>
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+            <nav id="navbar-menu" className="hidden md:flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 absolute md:relative top-full left-0 w-full bg-gray-900 md:bg-transparent p-4 md:p-0 shadow-lg md:shadow-none">
+              <button onClick={() => setCurrentPage('home')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Inicio</button>
+              <button onClick={() => setCurrentPage('services')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Servicios</button>
+              <button onClick={() => setCurrentPage('about')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Quiénes somos</button>
+              <button onClick={() => setCurrentPage('contact')} className={`block py-2 px-3 rounded-md text-lg font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'bg-yellow-600 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'}`}>Contacto</button>
+            </nav>
+          </header>
+          <main className="flex-grow pt-20 pb-16">
+            {renderContent()}
+          </main>
+          <footer className="bg-gray-900 text-white p-4 flex justify-around items-center fixed bottom-0 left-0 w-full z-10 md:hidden shadow-lg">
+            <button onClick={() => setCurrentPage('home')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'home' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+              Inicio
+            </button>
+            <button onClick={() => setCurrentPage('services')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'services' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-3 1h2m0-16V5a2 2 0 012-2h2a2 2 0 012 2v2M9 16l-3-12h10l-3 12M12 15l-3-6h6l-3 6m-6-6h6" /></svg>
+              Servicios
+            </button>
+            <button onClick={() => setCurrentPage('about')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'about' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857M12 11V9m0 2a4 4 0 100-8 4 4 0 000 8zm-2 11H8a2 2 0 01-2-2v-2a2 2 0 00-2-2H2a2 2 0 00-2 2v2a2 2 0 01-2 2h2zm10 0h2a2 2 0 002-2v-2a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 002 2h-2zm-6-4a4 4 0 100-8 4 4 0 000 8z" /></svg>
+              Equipo
+            </button>
+            <button onClick={() => setCurrentPage('contact')} className={`flex flex-col items-center text-sm font-medium transition duration-300 ease-in-out ${currentPage === 'contact' ? 'text-yellow-400' : 'text-gray-400 hover:text-yellow-300'}`}>
+              <svg className="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+              Contacto
+            </button>
+          </footer>
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
