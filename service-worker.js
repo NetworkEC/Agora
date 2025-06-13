@@ -1,4 +1,5 @@
-const CACHE_NAME = 'agora-v1';
+// Bump cache name to force the browser to fetch the latest files
+const CACHE_NAME = 'agora-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -8,14 +9,19 @@ const STATIC_ASSETS = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
+    caches.open(CACHE_NAME).then(cache => cache.addAll(STATIC_ASSETS))
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then(names => {
+      return Promise.all(
+        names.filter(name => name !== CACHE_NAME).map(name => caches.delete(name))
+      );
+    }).then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener('fetch', event => {
