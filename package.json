@@ -1,0 +1,21 @@
+{
+  "name": "agora-comunicaciones-app",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://networkec.github.io/Agora", // <-- ¡MODIFICA ESTA LÍNEA!
+  "dependencies": {
+    // ...
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^X.Y.Z" // La versión que tengas instalada
+  },
+  // ...
+}
