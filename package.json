@@ -1,21 +1,14 @@
 {
-  "name": "agora-comunicaciones-app",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://networkec.github.io/Agora", // <-- ¡MODIFICA ESTA LÍNEA!
-  "dependencies": {
-    // ...
-  },
+  "name": "agora",
+  "version": "1.0.0",
+  "description": "Esta es una pequeña PWA diseñada como demostración para una agencia de comunicación. Los archivos son estáticos y no requieren un proceso de compilación.",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "devDependencies": {
-    "gh-pages": "^X.Y.Z" // La versión que tengas instalada
-  },
-  // ...
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
