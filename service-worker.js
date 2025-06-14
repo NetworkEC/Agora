@@ -1,5 +1,5 @@
-// Bump cache name to force the browser to fetch the latest files
-const CACHE_NAME = 'agora-v2';
+// Updated cache name to force clients to retrieve the latest files
+const CACHE_NAME = 'agora-v3';
 const STATIC_ASSETS = [
   './',
   './index.html',
