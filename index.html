@@ -106,6 +106,7 @@
           case 'home':
             return (
               <div className="p-6">
+                <img src="./images/logo.png" alt="Ágora Comunicaciones Logo" className="mx-auto mb-4 h-16 w-auto" />
                 <h2 className="text-3xl font-extrabold text-gray-900 mb-6 text-center">¡Bienvenido a Ágora Comunicaciones!</h2>
                 <p className="text-gray-700 text-lg mb-8 text-center">Somos tu aliado estratégico en comunicación publicitaria. Conectamos marcas con personas, transformando ideas en resultados.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -224,7 +225,7 @@
       return (
         <div className="min-h-screen bg-gray-100 font-inter flex flex-col">
           <header className="bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10">
-            <img src="https://placehold.co/150x40/FACC15/000000?text=Ágora+Logo" alt="Ágora Comunicaciones Logo" className="h-10 w-auto" />
+            <img src="./images/logo.png" alt="Ágora Comunicaciones Logo" className="h-10 w-auto" />
             <button className="md:hidden text-yellow-400 focus:outline-none" onClick={() => document.getElementById('navbar-menu').classList.toggle('hidden')}>
               <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
