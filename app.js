@@ -11,22 +11,22 @@ const App = () => {
   const services = [{
     title: 'PUBLICIDAD',
     description: 'Estrategia y producción de contenido publicitario.',
-    image: 'https://placehold.co/400x200/FACC15/000000?text=Desarrollo+de+Marca+Personal',
+    image: './images/publicidad.jpg',
     details: ['Estrategia y planificación para la creación de contenido', 'Estrategias digitales', 'Producción audiovisual', 'Campañas de engagement y estrategias de crecimiento orgánico']
   }, {
     title: 'MARKETING DIGITAL',
     description: 'Impulsa tu presencia online con estrategias integrales.',
-    image: 'https://placehold.co/400x200/FACC15/000000?text=Estrategia+de+Contenido',
+    image: './images/marketing.jpg',
     details: ['Creación de estrategias de contenido adaptadas a cada plataforma (Instagram, Facebook, TikTok).', 'Administración de comunidades digitales: gestión de mensajes directos, moderación de comentarios y construcción de relaciones auténticas con la audiencia.', 'Elaboración de calendarios editoriales y programación de publicaciones.', 'Análisis de métricas y entrega de reportes de desempeño mensual.', 'Diseño gráfico y producción audiovisual básica para redes sociales.', 'Campañas de engagement y estrategias de crecimiento orgánico']
   }, {
     title: 'CREACIÓN DE CONTENIDO',
     description: 'Asesoría, guiones y edición de videos enfocados en engagement.',
-    image: 'https://placehold.co/400x200/FACC15/000000?text=Crecimiento+de+Audiencia',
+    image: './images/contenido.jpg',
     details: ['Asesorías previas para analizar la situación actual del emprendimiento', 'Creación de guiones', 'Edición de videos', 'Campañas de engagement y estrategias de crecimiento orgánico.']
   }, {
     title: 'MARCA PERSONAL',
     description: 'Diseñamos tu identidad y optimizamos tus perfiles.',
-    image: 'https://placehold.co/400x200/FACC15/000000?text=Optimizaci%C3%B3n+de+Perfil',
+    image: './images/marca.jpg',
     details: ['Desarrollo de marca personal: Creación de identidad visual y de marca para emprendedores en redes sociales.', 'Estrategia de contenido: Planificación y creación de contenido atractivo y relevante para TikTok.', 'Crecimiento de audiencia: Técnicas y estrategias para aumentar la visibilidad y el engagement en TikTok.', 'Optimización de perfil: Mejora de perfiles en redes sociales para aumentar la credibilidad y la atracción de seguidores.', 'Análisis y seguimiento: Monitoreo de resultados y ajustes en la estrategia para maximizar el impacto.']
   }];
   const teamMembers = [{
@@ -93,7 +93,7 @@ const App = () => {
         }, React.createElement("img", {
           src: "./images/logo.png",
           alt: "\xC1gora Comunicaciones Logo",
-          className: "mx-auto mb-4 h-16 w-auto"
+          className: "mx-auto mb-4 h-40 w-40"
         }), React.createElement("h2", {
           className: "text-3xl font-extrabold text-gray-900 mb-6 text-center"
         }, "\xA1Bienvenido a \xC1gora Comunicaciones!"), React.createElement("p", {
@@ -282,7 +282,7 @@ const App = () => {
   }, React.createElement("header", {
     className: "bg-gray-900 text-white shadow-md p-4 flex justify-between items-center fixed top-0 left-0 w-full z-10"
   }, React.createElement("img", {
-    src: "./images/logo.png",
+    src: "./images/logosml.png",
     alt: "\xC1gora Comunicaciones Logo",
     className: "h-10 w-auto"
   }), React.createElement("button", {
