@@ -1,5 +1,5 @@
 // Updated cache name to force clients to retrieve the latest files
-const CACHE_NAME = 'agora-v3';
+const CACHE_NAME = 'agora-v4';
 const STATIC_ASSETS = [
   './',
   './index.html',
