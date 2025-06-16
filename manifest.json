@@ -19,5 +19,36 @@
       "sizes": "512x512",
       "type": "image/png"
     }
+    {
+  // ...
+  "screenshots": [
+    {
+      "src": "/screenshots/screenshot1.jpg",
+      "sizes": "540x1200",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+      "label": "Página principal de Ágora Comunicaciones"
+    },
+    {
+      "src": "/screenshots/screenshot2.png",
+      "sizes": "540x1200",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Servicios de Ágora Comunicaciones"
+    }
+      {
+      "src": "/screenshots/screenshot3.jpg",
+      "sizes": "540x1200",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+      "label": "Equipo de Ágora Comunicaciones"
+    },
+      {
+      "src": "/screenshots/screenshot4.jpg",
+      "sizes": "540x1200",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+      "label": "Formulario de consulta"
+    },
   ]
 }
