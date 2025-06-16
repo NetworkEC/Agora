@@ -50,7 +50,16 @@
       "label": "Formulario de consulta"
     },
     {
-  "categories": ["business social photography communication", "agencia de marketing", "publicidad y mercadotecnia"],
+  "categories": ["business", "social", "photography", "communication"],
+}
+    {
+  "dir": "ltr",
+}
+    {
+  "lang": "es",
+}
+    {
+  "prefer_related_applications": false,
 }
   ]
 }
