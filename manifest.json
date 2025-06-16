@@ -12,13 +12,20 @@
     {
       "src": "./images/icon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./images/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "./images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "screenshots": [
@@ -56,4 +63,18 @@
   "lang": "es",
   "prefer_related_applications": false,
   "scope": "/Agora/"
+    ,"iarc_rating_id": "e879e316-d086-11eb-b8bc-0242ac130003",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.agora.app",
+      "id": "com.agora.app"
+    }
+  ],
+  "scope_extensions": [
+    { "origin": "https://networkec.github.io" }
+  ]
 }
