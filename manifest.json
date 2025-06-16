@@ -3,7 +3,9 @@
   "short_name": "Ágora",
   "description": "Tu aliado estratégico en comunicación publicitaria.",
   "start_url": ".",
+  "id": "/Agora/",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#ffffff",
   "theme_color": "#facc15",
   "icons": [
