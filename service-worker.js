@@ -29,3 +29,27 @@ self.addEventListener('fetch', event => {
     caches.match(event.request).then(response => response || fetch(event.request))
   );
 });
+
+// Background sync to ensure queued actions are processed when back online
+self.addEventListener('sync', event => {
+  if (event.tag === 'sync-agora') {
+    event.waitUntil(Promise.resolve());
+  }
+});
+
+// Periodic sync placeholder for updating content
+self.addEventListener('periodicsync', event => {
+  if (event.tag === 'update-agora') {
+    event.waitUntil(Promise.resolve());
+  }
+});
+
+// Handle push notifications
+self.addEventListener('push', event => {
+  const data = event.data ? event.data.json() : {};
+  const title = data.title || 'Ágora Comunicaciones';
+  const options = {
+    body: data.body || 'Tienes una nueva notificación'
+  };
+  event.waitUntil(self.registration.showNotification(title, options));
+});
